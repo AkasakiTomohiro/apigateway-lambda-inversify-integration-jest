@@ -1,0 +1,51 @@
+{
+  "name": "apigateway-lambda-inversify-integration-jest",
+  "version": "1.5.0",
+  "main": "lib/index.js",
+  "types": "jest.d.ts",
+  "module": "esm/index.js",
+  "files": [
+    "lib",
+    "esm",
+    "jest.d.ts"
+  ],
+  "repository": "https://github.com/AkasakiTomohiro/apigateway-lambda-inversify-integration-jest.git",
+  "author": "t-akasaki <t.akasaki.csharp@gmail.com>",
+  "license": "MIT",
+  "scripts": {
+    "prepublishOnly": "npm run build",
+    "build": "yarn build:CommonJS && yarn build:esm",
+    "build:CommonJS": "tsc --build tsconfig.build.json",
+    "build:esm": "tsc --build tsconfig.esm.json",
+    "lint:fix": "eslint --fix",
+    "lint-staged": "lint-staged",
+    "test": "jest --watch --config jest.config.js",
+    "test:coverage": "jest --coverage --config jest.config.js"
+  },
+  "dependencies": {
+    "apigateway-lambda-inversify-integration": "^1.4.1",
+    "deep-equal": "^2.0.5",
+    "inversify": "^5.0.1",
+    "reflect-metadata": "^0.1.13"
+  },
+  "devDependencies": {
+    "@types/aws-lambda": "^8.10.64",
+    "@types/jest": "24.9.1",
+    "@types/node": "^14.14.7",
+    "@typescript-eslint/eslint-plugin": "^4.7.0",
+    "@typescript-eslint/parser": "^4.7.0",
+    "commitlint": "^11.0.0",
+    "conventional-changelog-conventionalcommits": "^4.5.0",
+    "eslint": "^7.13.0",
+    "eslint-plugin-jest": "^24.1.3",
+    "gts": "^3.0.2",
+    "husky": "^4.3.0",
+    "jest": "26.4.2",
+    "jest-chain": "^1.1.5",
+    "lint-staged": "^10.5.1",
+    "prettier": "^2.1.2",
+    "ts-jest": "^26.4.4",
+    "ts-node": "^9.0.0",
+    "typescript": "3.7.5"
+  }
+}

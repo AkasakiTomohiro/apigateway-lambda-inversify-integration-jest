@@ -1,0 +1,44 @@
+{
+  "cSpell.words": [
+    "commitlint",
+    "conventionalcommits",
+    "inversify",
+    "vuex"
+  ],
+  "source.organizeImports": false,
+  "editor.tabSize": 2,
+  "editor.formatOnPaste": false,
+  "editor.formatOnSave": false,
+  "editor.formatOnType": true,
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": true,
+    "source.organizeImports": true,
+    "source.fixAll": true
+  },
+  "eslint.validate": ["javascript", "javascriptreact", "vue", "typescript"],
+  "vetur.format.defaultFormatter.css": "prettier",
+  "vetur.format.defaultFormatter.scss": "prettier",
+  "vetur.format.defaultFormatter.html": "prettier",
+  "vetur.format.defaultFormatter.js": "prettier-eslint",
+  "vetur.format.defaultFormatter.ts": "vscode-typescript",
+  "vetur.validation.template": false,
+  "conventionalCommits.scopes": [
+    "type",
+    "vscode",
+    "lib"
+  ],
+  "prettier.singleQuote": true,
+  "npm.exclude": "packages/**",
+  "npm.packageManager": "yarn",
+  "prettier.configPath": ".prettierrc.js",
+  "prettier.htmlWhitespaceSensitivity": "strict",
+  "prettier.packageManager": "yarn",
+  "prettier.printWidth": 120,
+  "prettier.trailingComma": "none",
+  "prettier.vueIndentScriptAndStyle": true,
+  "importSorter.generalConfiguration.sortOnBeforeSave": true,
+  "vue3snippets.enable-compile-vue-file-on-did-save-code": false,
+  "importSorter.importStringConfiguration.tabSize": 2,
+  "typescript.tsdk": "node_modules/typescript/lib",
+  "importSorter.importStringConfiguration.maximumNumberOfImportExpressionsPerLine.count": 120
+}
