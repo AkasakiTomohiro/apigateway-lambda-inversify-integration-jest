@@ -39,6 +39,19 @@ describe('ToBeMethodAuthorization', () => {
       .not.toBeMethodAuthentication('OPTIONS')
       .not.toBeMethodAuthentication('HEAD');
   });
+
+  it('Except for the controller', () => {
+    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+    // @ts-ignore
+    const result = toBeMethodAuthentication.toBeMethodAuthentication(1, 'GET');
+    expect(result.message()).toBe('expected HTTP Method[GET] to be Authentication');
+  });
+
+  it('the controller', () => {
+    const controller = new Test1Controller();
+    const result = toBeMethodAuthentication.toBeMethodAuthentication(controller, 'GET');
+    expect(result.message()).toBe('expected HTTP Method[GET] not to be Authentication');
+  });
 });
 
 class Test1Controller extends HttpMethodController<any> {

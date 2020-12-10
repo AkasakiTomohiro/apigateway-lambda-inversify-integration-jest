@@ -23,6 +23,19 @@ describe('ToBeMethodFunction', () => {
       .toBeMethodFunction('OPTIONS', 'options')
       .toBeMethodFunction('HEAD', 'head');
   });
+
+  it('Except for the controller', () => {
+    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+    // @ts-ignore
+    const result = toBeMethodFunction.toBeMethodFunction(1, 'GET', 'get');
+    expect(result.message()).toBe('expected HTTP Method[GET] to be Function[get]');
+  });
+
+  it('the controller', () => {
+    const controller = new Test1Controller();
+    const result = toBeMethodFunction.toBeMethodFunction(controller, 'GET', 'get');
+    expect(result.message()).toBe('expected HTTP Method[GET] not to be Function[get]');
+  });
 });
 
 class Test1Controller extends HttpMethodController<any> {

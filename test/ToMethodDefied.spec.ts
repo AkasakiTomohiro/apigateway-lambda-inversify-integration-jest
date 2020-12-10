@@ -39,6 +39,19 @@ describe('ToMethodDefied', () => {
       .not.toBeMethodDefied('OPTIONS')
       .not.toBeMethodDefied('HEAD');
   });
+
+  it('Except for the controller', () => {
+    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+    // @ts-ignore
+    const result = toBeMethodDefied.toBeMethodDefied(1, 'GET');
+    expect(result.message()).toBe('expected HTTP Method[GET] to be Defined');
+  });
+
+  it('the controller', () => {
+    const controller = new Test1Controller();
+    const result = toBeMethodDefied.toBeMethodDefied(controller, 'GET');
+    expect(result.message()).toBe('expected HTTP Method[GET] not to be Defined');
+  });
 });
 
 class Test1Controller extends HttpMethodController<any> {

@@ -34,6 +34,41 @@ describe('ToBeMethodValidation', () => {
     /* ------------------------------ 評価項目 ------------------------------ */
     expect(controller).toBeMethodValidation<ITest>('POST', 'bodyValidator', 'num', validation);
   });
+
+  it('Except for the controller', () => {
+    const validation: Validators = {
+      type: 'number',
+      required: true,
+      integer: true,
+      lessThan: 1
+    };
+    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+    // @ts-ignore
+    const result = toBeMethodValidation.toBeMethodValidation<ITest>(1, 'GET', 'bodyValidator', 'num', validation);
+    expect(result.message()).toBe('expected HTTP Method[GET] Validation[bodyValidator] to be Validation Value[num]');
+  });
+
+  it('the controller', () => {
+    const controller = new Test1Controller();
+    const validation: Validators = {
+      type: 'number',
+      required: true,
+      integer: true,
+      lessThan: 1
+    };
+    const result = toBeMethodValidation.toBeMethodValidation<ITest>(
+      controller,
+      'POST',
+      'bodyValidator',
+      'num',
+      // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+      // @ts-ignore
+      validation
+    );
+    expect(result.message()).toBe(
+      'expected HTTP Method[POST] Validation[bodyValidator] not to be Validation Value[num]'
+    );
+  });
 });
 
 class Test1Controller extends HttpMethodController<any> {
