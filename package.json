@@ -1,6 +1,6 @@
 {
   "name": "apigateway-lambda-inversify-integration-jest",
-  "version": "1.5.0",
+  "version": "1.0.2",
   "main": "lib/index.js",
   "types": "jest.d.ts",
   "module": "esm/index.js",
@@ -47,5 +47,8 @@
     "ts-jest": "^26.4.4",
     "ts-node": "^9.0.0",
     "typescript": "3.7.5"
-  }
+  },
+  "keywords": [
+    "apigateway-lambda-inversify-integration"
+  ]
 }

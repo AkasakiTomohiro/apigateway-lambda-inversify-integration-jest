@@ -12,6 +12,10 @@ In order for Jest to recognize it, you need to configure the following settings 
 setupFilesAfterEnv: ['apigateway-lambda-inversify-integration']
 ```
 
+### Typescript
+
+Add `import 'apigateway-lambda-inversify-integration-jest';` to `global.d.ts`.
+
 ### unit test
 
 Several Matchers have been implemented for unit testing of HttpMethodController.
