@@ -1,6 +1,6 @@
 {
   "name": "apigateway-lambda-inversify-integration-jest",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "main": "lib/index.js",
   "types": "jest.d.ts",
   "module": "esm/index.js",
