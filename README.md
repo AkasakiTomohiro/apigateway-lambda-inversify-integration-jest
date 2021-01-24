@@ -1,5 +1,10 @@
 # Readme
 
+![build](https://github.com/AkasakiTomohiro/apigateway-lambda-inversify-integration-jest/workflows/build/badge.svg)
+[![codecov](https://codecov.io/gh/AkasakiTomohiro/apigateway-lambda-inversify-integration-jest/branch/master/graph/badge.svg?token=L5NJZDE2GC)](https://codecov.io/gh/AkasakiTomohiro/apigateway-lambda-inversify-integration-jest)
+[![downloads](https://img.shields.io/npm/dm/apigateway-lambda-inversify-integration-jest.svg?style=flat-square)](http://npm-stat.com/charts.html?package=apigateway-lambda-inversify-integration-jest&from=2017-09-14)
+[![MIT License](https://img.shields.io/npm/l/apigateway-lambda-inversify-integration-jest.svg?style=flat-square)](https://github.com/AkasakiTomohiro/apigateway-lambda-inversify-integration-jest/blob/master/LICENSE)
+
 Define Matcher for jest in apigateway-lambda-inversify-integration library.
 
 ## Usage

@@ -8,7 +8,7 @@ declare namespace jest {
       method: import("apigateway-lambda-inversify-integration").HttpMethod,
       validationType: keyof import("apigateway-lambda-inversify-integration").IValidation<any, any, any, any>,
       key: keyof T,
-      validation: import("apigateway-lambda-inversify-integration").Validator<T[keyof T]>
+      validation: import("apigateway-lambda-inversify-integration").Validators<T[keyof T]>
     ): R;
   }
 }
