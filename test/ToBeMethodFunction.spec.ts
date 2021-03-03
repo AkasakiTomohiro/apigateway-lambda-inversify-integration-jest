@@ -41,92 +41,86 @@ describe('ToBeMethodFunction', () => {
 class Test1Controller extends HttpMethodController<any> {
   public constructor() {
     super();
-    this.setMethod('GET', {
-      func: this.get,
+    this.setMethod<Test1Controller, never, never, never, any>('GET', {
+      func: 'get',
       isAuthentication: true,
       validation: {}
     });
-    this.setMethod('POST', {
-      func: this.post,
+    this.setMethod<Test1Controller, never, never, never, any>('POST', {
+      func: 'post',
       isAuthentication: true,
       validation: {}
     });
-    this.setMethod('PUT', {
-      func: this.put,
+    this.setMethod<Test1Controller, never, never, never, any>('PUT', {
+      func: 'put',
       isAuthentication: true,
       validation: {}
     });
-    this.setMethod('PATCH', {
-      func: this.patch,
+    this.setMethod<Test1Controller, never, never, never, any>('PATCH', {
+      func: 'patch',
       isAuthentication: true,
       validation: {}
     });
-    this.setMethod('DELETE', {
-      func: this.delete,
+    this.setMethod<Test1Controller, never, never, never, any>('DELETE', {
+      func: 'delete',
       isAuthentication: true,
       validation: {}
     });
-    this.setMethod('OPTIONS', {
-      func: this.options,
+    this.setMethod<Test1Controller, never, never, never, any>('OPTIONS', {
+      func: 'options',
       isAuthentication: true,
       validation: {}
     });
-    this.setMethod('HEAD', {
-      func: this.head,
+    this.setMethod<Test1Controller, never, never, never, any>('HEAD', {
+      func: 'head',
       isAuthentication: true,
       validation: {}
     });
   }
 
-  private async get(event: CallFunctionEventParameter<any, never, never, never, any>): Promise<APIGatewayProxyResult> {
+  public async get(event: CallFunctionEventParameter<any, never, never, never, any>): Promise<APIGatewayProxyResult> {
     return {
       body: JSON.stringify({ ...event.userInfo, ...{ uri: '/test' } }),
       statusCode: 200
     };
   }
 
-  private async post(event: CallFunctionEventParameter<any, never, never, never, any>): Promise<APIGatewayProxyResult> {
+  public async post(event: CallFunctionEventParameter<any, never, never, never, any>): Promise<APIGatewayProxyResult> {
     return {
       body: JSON.stringify({ ...event.userInfo, ...{ uri: '/test' } }),
       statusCode: 200
     };
   }
 
-  private async put(event: CallFunctionEventParameter<any, never, never, never, any>): Promise<APIGatewayProxyResult> {
+  public async put(event: CallFunctionEventParameter<any, never, never, never, any>): Promise<APIGatewayProxyResult> {
     return {
       body: JSON.stringify({ ...event.userInfo, ...{ uri: '/test' } }),
       statusCode: 200
     };
   }
 
-  private async patch(
-    event: CallFunctionEventParameter<any, never, never, never, any>
-  ): Promise<APIGatewayProxyResult> {
+  public async patch(event: CallFunctionEventParameter<any, never, never, never, any>): Promise<APIGatewayProxyResult> {
     return {
       body: JSON.stringify({ ...event.userInfo, ...{ uri: '/test' } }),
       statusCode: 200
     };
   }
 
-  private async delete(
-    event: CallFunctionEventParameter<any, never, never, never, any>
-  ): Promise<APIGatewayProxyResult> {
+  public async delete(event: CallFunctionEventParameter<any, never, never, never, any>): Promise<APIGatewayProxyResult> {
     return {
       body: JSON.stringify({ ...event.userInfo, ...{ uri: '/test' } }),
       statusCode: 200
     };
   }
 
-  private async options(
-    event: CallFunctionEventParameter<any, never, never, never, any>
-  ): Promise<APIGatewayProxyResult> {
+  public async options(event: CallFunctionEventParameter<any, never, never, never, any>): Promise<APIGatewayProxyResult> {
     return {
       body: JSON.stringify({ ...event.userInfo, ...{ uri: '/test' } }),
       statusCode: 200
     };
   }
 
-  private async head(event: CallFunctionEventParameter<any, never, never, never, any>): Promise<APIGatewayProxyResult> {
+  public async head(event: CallFunctionEventParameter<any, never, never, never, any>): Promise<APIGatewayProxyResult> {
     return {
       body: JSON.stringify({ ...event.userInfo, ...{ uri: '/test' } }),
       statusCode: 200

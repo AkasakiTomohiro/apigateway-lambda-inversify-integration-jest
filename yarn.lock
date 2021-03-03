@@ -997,10 +997,10 @@ anymatch@^3.0.3:
     normalize-path "^3.0.0"
     picomatch "^2.0.4"
 
-apigateway-lambda-inversify-integration@^2.0.0:
-  version "2.0.0"
-  resolved "https://registry.yarnpkg.com/apigateway-lambda-inversify-integration/-/apigateway-lambda-inversify-integration-2.0.0.tgz#b8b77920b9e0e6c2d7a1fef7a8d7d47ec828a3fb"
-  integrity sha512-tmwv47eI5MRMZ2ic7hntBMAvi3rLcAOX1zh5qqbxjjScikA0dGXUl9cYA/CdjxQjm9woOr9Pc8BeKMzB7EZCQg==
+apigateway-lambda-inversify-integration@^3.0.0:
+  version "3.0.0"
+  resolved "https://registry.yarnpkg.com/apigateway-lambda-inversify-integration/-/apigateway-lambda-inversify-integration-3.0.0.tgz#28409ab6eae31dcfa86f1f2fa9ee7490d4e9658b"
+  integrity sha512-e/1gGvSOozusUitDO2rAufwOYp7ZM3JCIbLO9aITy05poLKLBr7XpAF4tZkHtcKEXL3bojjSGpoVVwHelxTnJQ==
   dependencies:
     deep-equal "^2.0.5"
     inversify "^5.0.1"

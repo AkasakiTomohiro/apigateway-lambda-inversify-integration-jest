@@ -1,6 +1,6 @@
 {
   "name": "apigateway-lambda-inversify-integration-jest",
-  "version": "2.0.0",
+  "version": "3.0.0",
   "main": "lib/index.js",
   "types": "jest.d.ts",
   "module": "esm/index.js",
@@ -23,7 +23,7 @@
     "test:coverage": "jest --coverage --config jest.config.js"
   },
   "dependencies": {
-    "apigateway-lambda-inversify-integration": "^2.0.0",
+    "apigateway-lambda-inversify-integration": "^3.0.0",
     "deep-equal": "^2.0.5",
     "inversify": "^5.0.1",
     "reflect-metadata": "^0.1.13"

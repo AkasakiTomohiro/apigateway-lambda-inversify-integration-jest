@@ -43,5 +43,5 @@
   "vue3snippets.enable-compile-vue-file-on-did-save-code": false,
   "importSorter.importStringConfiguration.tabSize": 2,
   "typescript.tsdk": "node_modules/typescript/lib",
-  "importSorter.importStringConfiguration.maximumNumberOfImportExpressionsPerLine.count": 120
+  "importSorter.importStringConfiguration.maximumNumberOfImportExpressionsPerLine.count": 140
 }

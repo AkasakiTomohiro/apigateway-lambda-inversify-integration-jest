@@ -1,23 +1,16 @@
-import {
-  Condition,
-  Conditions,
-  HttpMethod,
-  HttpMethodController,
-  IValidation,
-  Validator
-} from 'apigateway-lambda-inversify-integration';
+import { Condition, Conditions, HttpMethod, HttpMethodController, IValidation, Validator } from 'apigateway-lambda-inversify-integration';
 
 const deepEqual = require('deep-equal');
 
-function toBeMethodValidation<T = any>(
+function toBeMethodValidation<L extends HttpMethodController<any>, T = any>(
   controller: HttpMethodController<any>,
   method: HttpMethod,
   validationType: keyof IValidation<any, any, any, any>,
   key: keyof T,
   validation: Validator<T[keyof T]>
 ): jest.CustomMatcherResult {
-  const conditions: Conditions<any> | undefined = (controller as any).conditions;
-  const condition: Condition<any> | undefined = (conditions ?? {})[method];
+  const conditions: Conditions<any, L> | undefined = (controller as any).conditions;
+  const condition: Condition<any, L> | undefined = (conditions ?? {})[method];
   let pass = false;
   if (condition !== undefined) {
     const validator: any = condition.validation[validationType];
