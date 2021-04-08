@@ -7,6 +7,8 @@
   "env": { "jest/globals": true },
   "plugins": ["jest"],
   "rules": {
+    "prettier/prettier": "off",
+    "max-len": ["error", { "code": 160, "ignoreStrings": true, "ignoreTemplateLiterals": true, "ignoreRegExpLiterals": true, "ignoreComments": true }],
     "node/no-unpublished-import": "off",
     "node/no-extraneous-import": ["error"],
     "@typescript-eslint/ban-types": "off",
@@ -79,7 +81,7 @@
       {
         "selector": "typeParameter",
         "format": ["PascalCase"],
-        "prefix": ["T", "U", "K", "P", "E"]
+        "prefix": ["T", "U", "K", "P", "E", "L", "M"]
       }
     ]
   }

@@ -1,79 +1,85 @@
 import { CallFunctionEventParameter, HttpMethodController } from 'apigateway-lambda-inversify-integration';
 import { APIGatewayProxyResult } from 'aws-lambda';
 
-import toBeMethodFunction from '../src/ToBeMethodFunction';
+import toBeMethodUserRole from '../src/toBeMethodUserRole';
 
-describe('ToBeMethodFunction', () => {
+describe('toBeMethodUserRole', () => {
   beforeEach(() => {
-    expect.extend(toBeMethodFunction);
+    expect.extend(toBeMethodUserRole);
   });
 
-  it('Method Defined', async () => {
+  it('UserRole Check Success', async () => {
     /* --------------------------- テストの前処理 --------------------------- */
     const controller = new Test1Controller();
 
     /* ------------------------ テスト対象関数を実行 ------------------------ */
     /* ------------------------------ 評価項目 ------------------------------ */
     expect(controller)
-      .toBeMethodFunction('GET', 'get')
-      .toBeMethodFunction('POST', 'post')
-      .toBeMethodFunction('PUT', 'put')
-      .toBeMethodFunction('PATCH', 'patch')
-      .toBeMethodFunction('DELETE', 'delete')
-      .toBeMethodFunction('OPTIONS', 'options')
-      .toBeMethodFunction('HEAD', 'head');
+      .toBeMethodUserRole('GET', [1, 2])
+      .toBeMethodUserRole('POST', [2, 3, 4])
+      .toBeMethodUserRole('PUT',  [2, 3, 4, 5])
+      .toBeMethodUserRole('PATCH',  ['1', '2'])
+      .toBeMethodUserRole('DELETE',  ['1', '2'])
+      .toBeMethodUserRole('OPTIONS',  [1, '1'])
+      .toBeMethodUserRole('HEAD',  []);
   });
 
   it('Except for the controller', () => {
     // eslint-disable-next-line @typescript-eslint/ban-ts-comment
     // @ts-ignore
-    const result = toBeMethodFunction.toBeMethodFunction(1, 'GET', 'get');
-    expect(result.message()).toBe('expected HTTP Method[GET] to be Function[get]');
+    const result = toBeMethodUserRole.toBeMethodUserRole({}, 'GET', [1, 2]);
+    expect(result.message()).toBe('expected HTTP Method[GET] not to be UserRole[1, 2]. actual UserRole[undefined].');
+  });
+
+  it('to be success', () => {
+    const controller = new Test1Controller();
+    const result = toBeMethodUserRole.toBeMethodUserRole(controller, 'GET', [1, 2]);
+    expect(result.message()).toBe('expected HTTP Method[GET] to be UserRole[1, 2].');
   });
 
   it('the controller', () => {
     const controller = new Test1Controller();
-    const result = toBeMethodFunction.toBeMethodFunction(controller, 'GET', 'get');
-    expect(result.message()).toBe('expected HTTP Method[GET] not to be Function[get]');
+    const result = toBeMethodUserRole.toBeMethodUserRole(controller, 'GET', [1, 2, 3]);
+    expect(result.message()).toBe('expected HTTP Method[GET] not to be UserRole[1, 2, 3]. actual UserRole[1, 2].');
   });
 });
 
-class Test1Controller extends HttpMethodController<any> {
+class Test1Controller extends HttpMethodController<any, Role> {
   public constructor() {
     super();
     this.setMethod<Test1Controller, never, never, never, any>('GET', {
       func: 'get',
-      roles: [],
+      roles: [1, 2],
       isAuthentication: true,
       validation: {}
     });
     this.setMethod<Test1Controller, never, never, never, any>('POST', {
       func: 'post',
-      roles: [],
+      roles: [2, 3, 4],
       isAuthentication: true,
       validation: {}
     });
     this.setMethod<Test1Controller, never, never, never, any>('PUT', {
       func: 'put',
-      roles: [],
+      roles: [2, 3, 4, 5],
       isAuthentication: true,
       validation: {}
     });
     this.setMethod<Test1Controller, never, never, never, any>('PATCH', {
       func: 'patch',
-      roles: [],
+      roles: ['1', '2'],
       isAuthentication: true,
       validation: {}
     });
     this.setMethod<Test1Controller, never, never, never, any>('DELETE', {
       func: 'delete',
-      roles: [],
+      roles: ['2', '1'],
       isAuthentication: true,
       validation: {}
     });
     this.setMethod<Test1Controller, never, never, never, any>('OPTIONS', {
       func: 'options',
-      roles: [],
+      roles: [1, '1'],
       isAuthentication: true,
       validation: {}
     });
@@ -134,3 +140,7 @@ class Test1Controller extends HttpMethodController<any> {
     };
   }
 }
+
+export const roleList = [1, 2, 3, 4, 5, '1', '2', '3', '4', '5'] as const;
+
+export type Role = typeof roleList[number];

@@ -57,44 +57,51 @@ describe('ToBeMethodAuthorization', () => {
 class Test1Controller extends HttpMethodController<any> {
   public constructor() {
     super();
-    this.setMethod('GET', {
-      func: this.test,
+    this.setMethod<Test1Controller, never, never, never, any>('GET', {
+      func: 'test',
+      roles: [],
       isAuthentication: true,
       validation: {}
     });
-    this.setMethod('POST', {
-      func: this.test,
+    this.setMethod<Test1Controller, never, never, never, any>('POST', {
+      func: 'test',
+      roles: [],
       isAuthentication: true,
       validation: {}
     });
-    this.setMethod('PUT', {
-      func: this.test,
+    this.setMethod<Test1Controller, never, never, never, any>('PUT', {
+      func: 'test',
+      roles: [],
       isAuthentication: true,
       validation: {}
     });
-    this.setMethod('PATCH', {
-      func: this.test,
+    this.setMethod<Test1Controller, never, never, never, any>('PATCH', {
+      func: 'test',
+      roles: [],
       isAuthentication: true,
       validation: {}
     });
-    this.setMethod('DELETE', {
-      func: this.test,
+    this.setMethod<Test1Controller, never, never, never, any>('DELETE', {
+      func: 'test',
+      roles: [],
       isAuthentication: true,
       validation: {}
     });
-    this.setMethod('OPTIONS', {
-      func: this.test,
+    this.setMethod<Test1Controller, never, never, never, any>('OPTIONS', {
+      func: 'test',
+      roles: [],
       isAuthentication: true,
       validation: {}
     });
-    this.setMethod('HEAD', {
-      func: this.test,
+    this.setMethod<Test1Controller, never, never, never, any>('HEAD', {
+      func: 'test',
+      roles: [],
       isAuthentication: true,
       validation: {}
     });
   }
 
-  private async test(event: CallFunctionEventParameter<any, never, never, never, any>): Promise<APIGatewayProxyResult> {
+  public async test(event: CallFunctionEventParameter<any, never, never, never, any>): Promise<APIGatewayProxyResult> {
     return {
       body: JSON.stringify({ ...event.userInfo, ...{ uri: '/test' } }),
       statusCode: 200
@@ -105,44 +112,51 @@ class Test1Controller extends HttpMethodController<any> {
 class Test2Controller extends HttpMethodController<any> {
   public constructor() {
     super();
-    this.setMethod('GET', {
-      func: this.test,
+    this.setMethod<Test2Controller, never, never, never, any>('GET', {
+      func: 'test',
+      roles: [],
       isAuthentication: false,
       validation: {}
     });
-    this.setMethod('POST', {
-      func: this.test,
+    this.setMethod<Test2Controller, never, never, never, any>('POST', {
+      func: 'test',
+      roles: [],
       isAuthentication: false,
       validation: {}
     });
-    this.setMethod('PUT', {
-      func: this.test,
+    this.setMethod<Test2Controller, never, never, never, any>('PUT', {
+      func: 'test',
+      roles: [],
       isAuthentication: false,
       validation: {}
     });
-    this.setMethod('PATCH', {
-      func: this.test,
+    this.setMethod<Test2Controller, never, never, never, any>('PATCH', {
+      func: 'test',
+      roles: [],
       isAuthentication: false,
       validation: {}
     });
-    this.setMethod('DELETE', {
-      func: this.test,
+    this.setMethod<Test2Controller, never, never, never, any>('DELETE', {
+      func: 'test',
+      roles: [],
       isAuthentication: false,
       validation: {}
     });
-    this.setMethod('OPTIONS', {
-      func: this.test,
+    this.setMethod<Test2Controller, never, never, never, any>('OPTIONS', {
+      func: 'test',
+      roles: [],
       isAuthentication: false,
       validation: {}
     });
-    this.setMethod('HEAD', {
-      func: this.test,
+    this.setMethod<Test2Controller, never, never, never, any>('HEAD', {
+      func: 'test',
+      roles: [],
       isAuthentication: false,
       validation: {}
     });
   }
 
-  private async test(event: CallFunctionEventParameter<any, never, never, never, any>): Promise<APIGatewayProxyResult> {
+  public async test(event: CallFunctionEventParameter<any, never, never, never, any>): Promise<APIGatewayProxyResult> {
     return {
       body: JSON.stringify({ ...event.userInfo, ...{ uri: '/test' } }),
       statusCode: 200

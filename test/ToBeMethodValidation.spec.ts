@@ -56,7 +56,7 @@ describe('ToBeMethodValidation', () => {
       integer: true,
       lessThan: 1
     };
-    const result = toBeMethodValidation.toBeMethodValidation<ITest>(
+    const result = toBeMethodValidation.toBeMethodValidation(
       controller,
       'POST',
       'bodyValidator',
@@ -65,17 +65,16 @@ describe('ToBeMethodValidation', () => {
       // @ts-ignore
       validation
     );
-    expect(result.message()).toBe(
-      'expected HTTP Method[POST] Validation[bodyValidator] not to be Validation Value[num]'
-    );
+    expect(result.message()).toBe('expected HTTP Method[POST] Validation[bodyValidator] not to be Validation Value[num]');
   });
 });
 
 class Test1Controller extends HttpMethodController<any> {
   public constructor() {
     super();
-    this.setMethod('POST', {
-      func: this.test,
+    this.setMethod<Test1Controller, ITest, never, never, any>('POST', {
+      func: 'test',
+      roles: [],
       isAuthentication: false,
       validation: {
         bodyValidator: {
@@ -94,7 +93,7 @@ class Test1Controller extends HttpMethodController<any> {
     });
   }
 
-  private async test(event: CallFunctionEventParameter<any, ITest, never, never, any>): Promise<APIGatewayProxyResult> {
+  public async test(event: CallFunctionEventParameter<any, ITest, never, never, any>): Promise<APIGatewayProxyResult> {
     return {
       body: JSON.stringify({ ...event.userInfo, ...{ uri: '/test' } }),
       statusCode: 200
