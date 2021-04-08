@@ -1,7 +1,9 @@
-import { Condition, Conditions, HttpMethod, HttpMethodController } from 'apigateway-lambda-inversify-integration';
+import {
+  Condition, Conditions, HttpMethod, HttpMethodController, UserInfoType, UserRoleType
+} from 'apigateway-lambda-inversify-integration';
 
-function toBeMethodAuthentication<E, L extends HttpMethodController<any>>(
-  controller: HttpMethodController<E>,
+function toBeMethodAuthentication<E extends UserInfoType, M extends UserRoleType, L extends HttpMethodController<E, M>>(
+  controller: HttpMethodController<E, M>,
   method: HttpMethod
 ): jest.CustomMatcherResult {
   const conditions: Conditions<E, L> | undefined = (controller as any).conditions;

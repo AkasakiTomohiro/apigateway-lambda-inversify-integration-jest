@@ -1,9 +1,11 @@
-import { Condition, Conditions, HttpMethod, HttpMethodController, IValidation, Validator } from 'apigateway-lambda-inversify-integration';
+import {
+  Condition, Conditions, HttpMethod, HttpMethodController, IValidation, UserInfoType, UserRoleType, Validator
+} from 'apigateway-lambda-inversify-integration';
 
 const deepEqual = require('deep-equal');
 
-function toBeMethodValidation<L extends HttpMethodController<any>, T = any>(
-  controller: HttpMethodController<any>,
+function toBeMethodValidation<E extends UserInfoType, M extends UserRoleType, L extends HttpMethodController<E, M>, T extends Record<string, any> = any>(
+  controller: HttpMethodController<E, M>,
   method: HttpMethod,
   validationType: keyof IValidation<any, any, any, any>,
   key: keyof T,

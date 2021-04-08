@@ -1,6 +1,8 @@
-import { Condition, Conditions, HttpMethod, HttpMethodController } from 'apigateway-lambda-inversify-integration';
+import {
+  Condition, Conditions, HttpMethod, HttpMethodController, UserInfoType, UserRoleType
+} from 'apigateway-lambda-inversify-integration';
 
-function toBeMethodFunction<L extends HttpMethodController<any>>(
+function toBeMethodFunction<E extends UserInfoType, M extends UserRoleType, L extends HttpMethodController<E, M>>(
   controller: L,
   method: HttpMethod,
   funcName: string

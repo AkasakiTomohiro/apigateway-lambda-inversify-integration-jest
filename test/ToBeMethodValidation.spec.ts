@@ -74,6 +74,7 @@ class Test1Controller extends HttpMethodController<any> {
     super();
     this.setMethod<Test1Controller, ITest, never, never, any>('POST', {
       func: 'test',
+      roles: [],
       isAuthentication: false,
       validation: {
         bodyValidator: {

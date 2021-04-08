@@ -43,36 +43,43 @@ class Test1Controller extends HttpMethodController<any> {
     super();
     this.setMethod<Test1Controller, never, never, never, any>('GET', {
       func: 'get',
+      roles: [],
       isAuthentication: true,
       validation: {}
     });
     this.setMethod<Test1Controller, never, never, never, any>('POST', {
       func: 'post',
+      roles: [],
       isAuthentication: true,
       validation: {}
     });
     this.setMethod<Test1Controller, never, never, never, any>('PUT', {
       func: 'put',
+      roles: [],
       isAuthentication: true,
       validation: {}
     });
     this.setMethod<Test1Controller, never, never, never, any>('PATCH', {
       func: 'patch',
+      roles: [],
       isAuthentication: true,
       validation: {}
     });
     this.setMethod<Test1Controller, never, never, never, any>('DELETE', {
       func: 'delete',
+      roles: [],
       isAuthentication: true,
       validation: {}
     });
     this.setMethod<Test1Controller, never, never, never, any>('OPTIONS', {
       func: 'options',
+      roles: [],
       isAuthentication: true,
       validation: {}
     });
     this.setMethod<Test1Controller, never, never, never, any>('HEAD', {
       func: 'head',
+      roles: [],
       isAuthentication: true,
       validation: {}
     });
