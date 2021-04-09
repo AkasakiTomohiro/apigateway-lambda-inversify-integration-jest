@@ -1,7 +1,7 @@
 import { CallFunctionEventParameter, HttpMethodController } from 'apigateway-lambda-inversify-integration';
 import { APIGatewayProxyResult } from 'aws-lambda';
 
-import toBeMethodUserRole from '../src/toBeMethodUserRole';
+import toBeMethodUserRole from '../src/ToBeMethodUserRole';
 
 describe('toBeMethodUserRole', () => {
   beforeEach(() => {
