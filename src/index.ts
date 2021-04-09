@@ -1,7 +1,7 @@
 import toBeMethodAuthentication from './ToBeMethodAuthentication';
 import toBeMethodDefied from './ToBeMethodDefied';
 import toBeMethodFunction from './ToBeMethodFunction';
-import toBeMethodUserRole from './toBeMethodUserRole';
+import toBeMethodUserRole from './ToBeMethodUserRole';
 import toBeMethodValidation from './ToBeMethodValidation';
 
 expect.extend(toBeMethodAuthentication);
